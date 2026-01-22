@@ -1,0 +1,196 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "slug": "modern-hillside-home",
+      "title": "Modern Hillside Home",
+      "type": "Residential",
+      "category": "residential",
+      "location": "Livingston, NJ",
+      "scope": "New Construction, Interior Design",
+      "completion": "2024",
+      "featured": true,
+      "thumbnail": "images/projects/modern-hillside-thumb.jpg",
+      "hero": "images/projects/modern-hillside-hero.jpg",
+      "description": [
+        "Perched on a scenic hillside in Livingston, this modern home was designed to blend seamlessly with its natural surroundings while offering expansive views of the city below. The residence faces west.",
+        "The residence features a minimalist design, utilizing raw concrete, glass, and natural wood elements. The open-concept living spaces are designed to maximize natural light and provide a seamless transition between indoor and outdoor environments — including a stunning infinity pool that enhances the contextual landscape."
+      ],
+      "gallery": [
+        "images/projects/modern-hillside-1.jpg",
+        "images/projects/modern-hillside-2.jpg",
+        "images/projects/modern-hillside-3.jpg"
+      ],
+      "features": [
+        "Minimalist design with raw concrete and natural wood",
+        "Cantilevered structure with large open living spaces",
+        "Custom-designed infinity pool overlooking the cityscape",
+        "Sustainable design with energy-efficient systems",
+        "Floor-to-ceiling glass walls and sliding doors",
+        "Outdoor living area with fire pit and lounge space",
+        "Integrated landscape design with native plantings",
+        "Smart home technology throughout"
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "minimalist-lake-house",
+      "title": "Minimalist Lake House",
+      "type": "Residential",
+      "category": "residential",
+      "location": "Hudson Valley, NY",
+      "scope": "New Construction",
+      "completion": "2023",
+      "featured": true,
+      "thumbnail": "images/projects/lake-house-thumb.jpg",
+      "hero": "images/projects/lake-house-hero.jpg",
+      "description": [
+        "This lakeside retreat embodies simplicity and connection to nature. Designed as a weekend escape, the home features clean lines and an emphasis on horizontal planes that mirror the calm waters of the lake.",
+        "Natural materials including stone, wood, and glass create a warm, inviting atmosphere while maintaining a refined aesthetic. The design prioritizes indoor-outdoor living with expansive terraces and floor-to-ceiling windows."
+      ],
+      "gallery": [
+        "images/projects/lake-house-1.jpg",
+        "images/projects/lake-house-2.jpg",
+        "images/projects/lake-house-3.jpg"
+      ],
+      "features": [
+        "Horizontal design emphasizing lakefront views",
+        "Natural stone and wood materiality",
+        "Expansive glass walls",
+        "Waterfront terrace and infinity pool",
+        "Minimalist interior finishes",
+        "Integrated outdoor kitchen",
+        "Private dock and boathouse",
+        "Radiant floor heating"
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "urban-office-renovation",
+      "title": "Urban Office Renovation",
+      "type": "Commercial",
+      "category": "commercial",
+      "location": "Manhattan, NY",
+      "scope": "Interior Renovation",
+      "completion": "2024",
+      "featured": true,
+      "thumbnail": "images/projects/urban-office-thumb.jpg",
+      "hero": "images/projects/urban-office-hero.jpg",
+      "description": [
+        "A comprehensive renovation of a mid-century office building in Manhattan's Flatiron District. The design preserves the building's original concrete structure while introducing modern amenities and flexible workspace solutions.",
+        "The open-plan layout incorporates collaborative zones, quiet work areas, and versatile meeting spaces. Exposed materials and a restrained material palette create an atmosphere of focused productivity."
+      ],
+      "gallery": [
+        "images/projects/urban-office-1.jpg",
+        "images/projects/urban-office-2.jpg",
+        "images/projects/urban-office-3.jpg"
+      ],
+      "features": [
+        "Exposed concrete ceiling and structural elements",
+        "Open-plan collaborative workspace",
+        "Flexible meeting rooms with movable partitions",
+        "Natural oak millwork and furniture",
+        "Energy-efficient LED lighting",
+        "Green roof terrace",
+        "Upgraded HVAC and mechanical systems",
+        "Acoustic treatments for improved sound quality"
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "hillside-retreat",
+      "title": "Hillside Retreat",
+      "type": "Residential",
+      "category": "residential",
+      "location": "Hudson Valley, NY",
+      "scope": "New Construction, Landscape Design",
+      "completion": "2023",
+      "featured": false,
+      "thumbnail": "images/projects/hillside-retreat-thumb.jpg",
+      "hero": "images/projects/hillside-retreat-hero.jpg",
+      "description": [
+        "A secluded residence nestled into a wooded hillside, designed to minimize site impact while maximizing views. The home features a split-level design that follows the natural topography.",
+        "Sustainable materials and passive solar design strategies reduce energy consumption while maintaining year-round comfort."
+      ],
+      "gallery": [
+        "images/projects/hillside-retreat-1.jpg",
+        "images/projects/hillside-retreat-2.jpg",
+        "images/projects/hillside-retreat-3.jpg"
+      ],
+      "features": [
+        "Split-level design following natural topography",
+        "Passive solar orientation",
+        "Locally-sourced timber and stone",
+        "Green roof system",
+        "Geothermal heating and cooling",
+        "Rainwater collection system",
+        "Native landscape plantings",
+        "Screened outdoor living spaces"
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "contemporary-addition",
+      "title": "Contemporary Addition",
+      "type": "Residential",
+      "category": "residential",
+      "location": "Westchester, NY",
+      "scope": "Addition & Renovation",
+      "completion": "2022",
+      "featured": false,
+      "thumbnail": "images/projects/contemporary-addition-thumb.jpg",
+      "hero": "images/projects/contemporary-addition-hero.jpg",
+      "description": [
+        "A modern addition to a 1960s suburban home that creates new living spaces while respecting the original structure. The design uses contrasting materials to distinguish new from old.",
+        "The addition includes an expanded kitchen, family room, and primary suite, all organized around a central courtyard that brings natural light deep into the plan."
+      ],
+      "gallery": [
+        "images/projects/contemporary-addition-1.jpg",
+        "images/projects/contemporary-addition-2.jpg",
+        "images/projects/contemporary-addition-3.jpg"
+      ],
+      "features": [
+        "Contrasting material palette (zinc and wood)",
+        "Central courtyard for natural light",
+        "Expanded open-plan kitchen and living",
+        "Primary suite with private terrace",
+        "Custom millwork throughout",
+        "High-efficiency windows and insulation",
+        "Landscape integration",
+        "Seamless indoor-outdoor transitions"
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "modern-townhouse-renovation",
+      "title": "Modern Townhouse Renovation",
+      "type": "Residential",
+      "category": "residential",
+      "location": "Brooklyn, NY",
+      "scope": "Complete Interior Renovation",
+      "completion": "2023",
+      "featured": false,
+      "thumbnail": "images/projects/townhouse-thumb.jpg",
+      "hero": "images/projects/townhouse-hero.jpg",
+      "description": [
+        "A gut renovation of a 19th-century Brooklyn townhouse that preserves the historic facade while creating a completely modern interior. The design opens up the traditional layout to create flowing, light-filled spaces.",
+        "A new skylight above the central stairwell brings natural light to all levels. Custom millwork and built-ins maximize storage in the narrow footprint."
+      ],
+      "gallery": [
+        "images/projects/townhouse-1.jpg",
+        "images/projects/townhouse-2.jpg",
+        "images/projects/townhouse-3.jpg"
+      ],
+      "features": [
+        "Preserved historic facade",
+        "Open-plan living spaces",
+        "Central skylight for natural light",
+        "Custom white oak staircase",
+        "Built-in storage solutions",
+        "Chef's kitchen with Italian marble",
+        "Spa-like primary bathroom",
+        "Landscaped rear garden"
+      ]
+    }
+  ]
+}

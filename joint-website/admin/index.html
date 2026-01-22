@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Join.T Design Studio CMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f5f5f5;
+            color: #2a2a2a;
+            line-height: 1.6;
+        }
+
+        .admin-header {
+            background: #0a0a0a;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-header h1 {
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .admin-nav a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .admin-nav a:hover {
+            color: white;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .admin-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .admin-section h2 {
+            font-family: 'Archivo', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: #0a0a0a;
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2a2a2a;
+        }
+
+        .btn-secondary {
+            background: #6a6a6a;
+        }
+
+        .btn-danger {
+            background: #c53030;
+        }
+
+        .btn-danger:hover {
+            background: #9b2c2c;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .project-list {
+            list-style: none;
+        }
+
+        .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-meta {
+            font-size: 0.85rem;
+            color: #6a6a6a;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0a0a0a;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6a6a6a;
+            margin-top: 0.5rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6a6a6a;
+        }
+
+        .array-input {
+            margin-bottom: 0.5rem;
+        }
+
+        .array-controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <h1>Join.T Design Studio - CMS Admin</h1>
+        <nav class="admin-nav">
+            <a href="../index.html" target="_blank">View Site</a>
+            <a href="#" onclick="exportProjects()">Export Data</a>
+            <a href="#" onclick="document.getElementById('importFile').click()">Import Data</a>
+        </nav>
+    </div>
+
+    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importProjects(event)">
+
+    <div class="admin-container">
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalProjects">0</div>
+                <div class="stat-label">Total Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="residentialCount">0</div>
+                <div class="stat-label">Residential</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="commercialCount">0</div>
+                <div class="stat-label">Commercial</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="featuredCount">0</div>
+                <div class="stat-label">Featured</div>
+            </div>
+        </div>
+
+        <!-- Projects Management -->
+        <div class="admin-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2>Projects</h2>
+                <button class="btn" onclick="openAddModal()">+ Add New Project</button>
+            </div>
+            <ul class="project-list" id="projectList">
+                <!-- Projects will be loaded here -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Add/Edit Project Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Project</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="projectForm">
+                <input type="hidden" id="projectId">
+                
+                <div class="form-group">
+                    <label for="title">Project Title *</label>
+                    <input type="text" id="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" required>
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location *</label>
+                    <input type="text" id="location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Year *</label>
+                    <input type="text" id="year" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="scope">Scope of Work *</label>
+                    <input type="text" id="scope" placeholder="e.g., New Construction, Interior Design" required>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="featured">
+                    <label for="featured">Featured Project</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="hero">Hero Image Path *</label>
+                    <input type="text" id="hero" placeholder="images/projects/project-name/hero.jpg" required>
+                    <small>Upload image to your server and enter the path here</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="thumbnail">Thumbnail Image Path *</label>
+                    <input type="text" id="thumbnail" placeholder="images/projects/project-name/thumb.jpg" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Overview Paragraphs *</label>
+                    <div id="overviewContainer">
+                        <textarea class="array-input" placeholder="First paragraph..."></textarea>
+                        <textarea class="array-input" placeholder="Second paragraph..."></textarea>
+                    </div>
+                    <div class="array-controls">
+                        <button type="button" class="btn btn-secondary btn-small" onclick="addOverviewParagraph()">+ Add Paragraph</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Gallery Images (paths)</label>
+                    <div id="galleryContainer">
+                        <input type="text" class="array-input" placeholder="images/projects/project-name/gallery-1.jpg">
+                        <input type="text" class="array-input" placeholder="images/projects/project-name/gallery-2.jpg">
+                        <input type="text" class="array-input" placeholder="images/projects/project-name/gallery-3.jpg">
+                    </div>
+                    <div class="array-controls">
+                        <button type="button" class="btn btn-secondary btn-small" onclick="addGalleryInput()">+ Add Image</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Design Details (bullet points)</label>
+                    <div id="detailsContainer">
+                        <input type="text" class="array-input" placeholder="Detail 1">
+                        <input type="text" class="array-input" placeholder="Detail 2">
+                        <input type="text" class="array-input" placeholder="Detail 3">
+                    </div>
+                    <div class="array-controls">
+                        <button type="button" class="btn btn-secondary btn-small" onclick="addDetailInput()">+ Add Detail</button>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                    <button type="submit" class="btn">Save Project</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/cms.js"></script>
+    <script>
+        const cms = new ProjectCMS();
+        let editingProjectId = null;
+
+        // Load and display projects
+        function loadProjects() {
+            const projects = cms.getAllProjects();
+            const list = document.getElementById('projectList');
+            
+            if (projects.length === 0) {
+                list.innerHTML = '<li style="padding: 2rem; text-align: center; color: #6a6a6a;">No projects yet. Add your first project to get started!</li>';
+                return;
+            }
+
+            list.innerHTML = projects.map(project => `
+                <li class="project-item">
+                    <div class="project-info">
+                        <h3>${project.title}</h3>
+                        <p class="project-meta">
+                            ${project.category.charAt(0).toUpperCase() + project.category.slice(1)} • 
+                            ${project.location} • 
+                            ${project.year}
+                            ${project.featured ? ' • ⭐ Featured' : ''}
+                        </p>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn btn-small" onclick="editProject('${project.id}')">Edit</button>
+                        <button class="btn btn-danger btn-small" onclick="deleteProject('${project.id}')">Delete</button>
+                    </div>
+                </li>
+            `).join('');
+
+            updateStats();
+        }
+
+        // Update statistics
+        function updateStats() {
+            const projects = cms.getAllProjects();
+            document.getElementById('totalProjects').textContent = projects.length;
+            document.getElementById('residentialCount').textContent = projects.filter(p => p.category === 'residential').length;
+            document.getElementById('commercialCount').textContent = projects.filter(p => p.category === 'commercial').length;
+            document.getElementById('featuredCount').textContent = projects.filter(p => p.featured).length;
+        }
+
+        // Modal functions
+        function openAddModal() {
+            editingProjectId = null;
+            document.getElementById('modalTitle').textContent = 'Add New Project';
+            document.getElementById('projectForm').reset();
+            document.getElementById('projectModal').classList.add('active');
+        }
+
+        function editProject(id) {
+            editingProjectId = id;
+            const project = cms.getProject(id);
+            
+            document.getElementById('modalTitle').textContent = 'Edit Project';
+            document.getElementById('projectId').value = project.id;
+            document.getElementById('title').value = project.title;
+            document.getElementById('category').value = project.category;
+            document.getElementById('location').value = project.location;
+            document.getElementById('year').value = project.year;
+            document.getElementById('scope').value = project.scope;
+            document.getElementById('featured').checked = project.featured || false;
+            document.getElementById('hero').value = project.hero;
+            document.getElementById('thumbnail').value = project.thumbnail;
+
+            // Load overview paragraphs
+            const overviewContainer = document.getElementById('overviewContainer');
+            overviewContainer.innerHTML = project.overview.map(p => 
+                `<textarea class="array-input">${p}</textarea>`
+            ).join('');
+
+            // Load gallery images
+            const galleryContainer = document.getElementById('galleryContainer');
+            galleryContainer.innerHTML = project.gallery.map(img => 
+                `<input type="text" class="array-input" value="${img}">`
+            ).join('');
+
+            // Load details
+            const detailsContainer = document.getElementById('detailsContainer');
+            detailsContainer.innerHTML = project.details.map(detail => 
+                `<input type="text" class="array-input" value="${detail}">`
+            ).join('');
+
+            document.getElementById('projectModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+        }
+
+        function deleteProject(id) {
+            if (confirm('Are you sure you want to delete this project?')) {
+                cms.deleteProject(id);
+                loadProjects();
+            }
+        }
+
+        // Form submission
+        document.getElementById('projectForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const overview = Array.from(document.querySelectorAll('#overviewContainer textarea'))
+                .map(t => t.value)
+                .filter(v => v.trim());
+
+            const gallery = Array.from(document.querySelectorAll('#galleryContainer input'))
+                .map(i => i.value)
+                .filter(v => v.trim());
+
+            const details = Array.from(document.querySelectorAll('#detailsContainer input'))
+                .map(i => i.value)
+                .filter(v => v.trim());
+
+            const projectData = {
+                title: document.getElementById('title').value,
+                category: document.getElementById('category').value,
+                location: document.getElementById('location').value,
+                year: document.getElementById('year').value,
+                scope: document.getElementById('scope').value,
+                featured: document.getElementById('featured').checked,
+                hero: document.getElementById('hero').value,
+                thumbnail: document.getElementById('thumbnail').value,
+                overview,
+                gallery,
+                details
+            };
+
+            if (editingProjectId) {
+                cms.updateProject(editingProjectId, projectData);
+            } else {
+                cms.addProject(projectData);
+            }
+
+            closeModal();
+            loadProjects();
+        });
+
+        // Array input helpers
+        function addOverviewParagraph() {
+            const container = document.getElementById('overviewContainer');
+            const textarea = document.createElement('textarea');
+            textarea.className = 'array-input';
+            textarea.placeholder = 'New paragraph...';
+            container.appendChild(textarea);
+        }
+
+        function addGalleryInput() {
+            const container = document.getElementById('galleryContainer');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'array-input';
+            input.placeholder = 'images/projects/project-name/new-image.jpg';
+            container.appendChild(input);
+        }
+
+        function addDetailInput() {
+            const container = document.getElementById('detailsContainer');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'array-input';
+            input.placeholder = 'New detail';
+            container.appendChild(input);
+        }
+
+        // Export/Import
+        function exportProjects() {
+            cms.exportProjects();
+        }
+
+        function importProjects(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    if (cms.importProjects(e.target.result)) {
+                        alert('Projects imported successfully!');
+                        loadProjects();
+                    } else {
+                        alert('Failed to import projects. Please check the file format.');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Initialize
+        loadProjects();
+    </script>
+</body>
+</html>
